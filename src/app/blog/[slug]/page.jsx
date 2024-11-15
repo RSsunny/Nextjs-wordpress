@@ -13,12 +13,14 @@ const DetailsPage = async ({ params }) => {
   const { slug } = params;
   const data = await getData(parseInt(slug));
   return (
-    <div className="max-w-xl mx-auto">
-      <p>Details page</p>
-      <h1>{data?.title?.rendered}</h1>
-      {data?.content?.rendered && (
-        <div dangerouslySetInnerHTML={{ __html: data?.content?.rendered }} />
-      )}
+    <div className="max-w-7xl mx-auto px-2 xl:px-0 grid grid-cols-12 gap-5 my-5">
+      <div className="col-span-9">
+        <h1>{data?.title?.rendered}</h1>
+        {data?.content?.rendered && (
+          <div dangerouslySetInnerHTML={{ __html: data?.content?.rendered }} />
+        )}
+      </div>
+      <div className="col-span-3">Sidebar</div>
     </div>
   );
 };
